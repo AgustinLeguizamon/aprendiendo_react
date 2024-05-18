@@ -6,6 +6,10 @@ export function FilterableProductTable({products}) {
     const [filterText, setFilterText] = useState('');
     const [inStockOnly, setChecked] = useState(false);
 
+    function clearFilterText() {
+        setFilterText('');
+    }
+
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -15,6 +19,7 @@ export function FilterableProductTable({products}) {
                                    inStockOnly={inStockOnly}
                                    onFilterTextChange={setFilterText}
                                    onInStockOnlyPress={setChecked}
+                                   onClearFilterPress={clearFilterText}
                         />
                     </div>
                 </div>
