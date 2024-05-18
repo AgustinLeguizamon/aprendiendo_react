@@ -22,16 +22,21 @@ export function ProductTable({products, filterText, inStockOnly}) {
     const rows = Array.from(categoryToProducts.values())
 
     return (
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-            </tr>
-            </thead>
-            <tbody>
-            {rows}
-            </tbody>
-        </table>
+        <div className="card">
+            <div className="card-body">
+                <table className="table">
+                    <thead>
+                    <tr className="">
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {rows}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     )
 }

@@ -1,7 +1,9 @@
 import './App.css';
 import {FilterableProductTable} from "./components/FilterableProductTable/FilterableProductTable";
 
-const products = [
+import 'bootstrap/dist/css/bootstrap.css';
+
+const PRODUCTS = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
     { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
     { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
@@ -13,7 +15,7 @@ const products = [
 
 function App() {
   return (
-      <FilterableProductTable products={products}/>
+      <FilterableProductTable products={PRODUCTS}/>
   );
 }
 
