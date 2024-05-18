@@ -35,21 +35,23 @@ function ProductRow({product}) {
     )
 }
 
-function ProductTable({products, searchText, inStockOnly}) {
-    let categoryToProducts = new Map()
+function ProductTable({products, filterText, inStockOnly}) {
+    const categoryToProducts = new Map()
     products.forEach(product => {
+        if (!product.name.toLowerCase().includes(filterText.toLowerCase())) {
+            return;
+        }
+        if (!product.stocked && inStockOnly) {
+            return;
+        }
         if (!categoryToProducts.has(product.category)) {
-            categoryToProducts.set(product.category, [<ProductRow product={product} key={product.name} />])
+            categoryToProducts.set(product.category, [<ProductCategoryRow category={product.category} key={product.category} />, <ProductRow product={product} key={product.name} />])
         } else {
             categoryToProducts.get(product.category).push(<ProductRow product={product} key={product.name} />)
         }
     })
 
-    const rows = []
-    categoryToProducts.forEach((products, category, _) => {
-        rows.push(<ProductCategoryRow category={category} key={category} />)
-        rows.push(products)
-    })
+    const rows = Array.from(categoryToProducts.values())
 
     return(
         <table>
@@ -94,7 +96,7 @@ function FilterableProductTable({products}) {
                        onFilterTextChange={setFilterText}
                        onInStockOnlyPress={setChecked}
             />
-            <ProductTable products={products} inStockOnly={inStockOnly} />
+            <ProductTable products={products} filterText={filterText} inStockOnly={inStockOnly} />
         </div>
     )
 }
