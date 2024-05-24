@@ -70,4 +70,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ### Clickup
-Integración con clickup, recordar poner un # delante del id de la task y que el repo tenga asociado el space donde esta el task
+Integración con clickup, recordar poner un # delante del id de la task y que el repo tenga asociado el space donde esta el task. Ahora se modifica el status
+
